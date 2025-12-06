@@ -25,7 +25,7 @@ const ProjectsSection = () => {
             {projects.map((p) => (
               <div className="card project-card" key={p._id}>
                 <div className="card-image">
-                  <img src={API_BASE_URL + p.imageUrl} alt={p.name} />
+                  <img src={p.imageUrl} alt={p.name} />
                 </div>
                 <h3>{p.name}</h3>
                 <p className="card-description">{p.description}</p>

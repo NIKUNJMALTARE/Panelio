@@ -23,7 +23,7 @@ const HappyClientsSection = () => {
             {clients.map((c) => (
               <div className="card client-card" key={c._id}>
                 <div className="client-image">
-                  <img src={API_BASE_URL + c.imageUrl} alt={c.name} />
+                  <img src={c.imageUrl} alt={c.name} />
                 </div>
                 <p className="client-description">{c.description}</p>
                 <h3>{c.name}</h3>
