@@ -41,7 +41,6 @@ const AdminDashboardPage = () => {
 
   const loadData = async () => {
     try {
-      // if session expired while on page:
       if (!isAdminAuthenticated()) {
         logout();
         return;
@@ -57,13 +56,12 @@ const AdminDashboardPage = () => {
       setContacts(ctRes.data);
       setSubscribers(sRes.data);
     } catch (err) {
-      // if backend returns 401, also log out
       logout();
     }
   };
 
   useEffect(() => {
-    // initial session check
+
     if (!isAdminAuthenticated()) {
       logout();
       return;
@@ -71,16 +69,15 @@ const AdminDashboardPage = () => {
 
     loadData();
 
-    // set up interval to auto-logout when session expires
     const interval = setInterval(() => {
       if (!isAdminAuthenticated()) {
         alert("Your session has expired. Please log in again.");
         logout();
       }
-    }, 60 * 1000); // check every 60 seconds
+    }, 60 * 1000); 
 
     return () => clearInterval(interval);
-  }, []); // run once on mount
+  }, []); 
 
   const handleProjectChange = (e) => {
     setProjectForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));

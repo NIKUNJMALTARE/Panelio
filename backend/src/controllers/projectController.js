@@ -1,4 +1,6 @@
 import Project from "../models/Project.js";
+import cloudinary from "../utils/cloudinary.js";
+import fs from "fs";
 
 export const getProjects = async (req, res, next) => {
   try {
@@ -19,7 +21,19 @@ export const createProject = async (req, res, next) => {
       throw new Error("Please provide name, description and image");
     }
 
-    const imageUrl = `/uploads/${file.filename}`;
+
+    const result = await cloudinary.uploader.upload(file.path, {
+      folder: "realtrust/projects",
+      use_filename: true,
+      unique_filename: false,
+      resource_type: "image"
+    });
+
+    fs.unlink(file.path, (err) => {
+      if (err) console.warn("Failed to delete temp file:", err);
+    });
+
+    const imageUrl = result.secure_url;
 
     const project = await Project.create({ name, description, imageUrl });
     res.status(201).json(project);

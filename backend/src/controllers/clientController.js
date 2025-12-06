@@ -1,4 +1,6 @@
 import Client from "../models/Client.js";
+import cloudinary from "../utils/cloudinary.js";
+import fs from "fs";
 
 export const getClients = async (req, res, next) => {
   try {
@@ -19,7 +21,18 @@ export const createClient = async (req, res, next) => {
       throw new Error("Please provide name, description, designation and image");
     }
 
-    const imageUrl = `/uploads/${file.filename}`;
+    const result = await cloudinary.uploader.upload(file.path, {
+      folder: "realtrust/clients",
+      use_filename: true,
+      unique_filename: false,
+      resource_type: "image"
+    });
+
+    fs.unlink(file.path, (err) => {
+      if (err) console.warn("Failed to delete temp file:", err);
+    });
+
+    const imageUrl = result.secure_url;
 
     const client = await Client.create({
       name,

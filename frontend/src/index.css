@@ -21,7 +21,7 @@ img {
   display: block;
 }
 
-/* Containers & sections */
+
 .container {
   width: 90%;
   max-width: 1120px;
@@ -49,7 +49,7 @@ img {
   background-color: #f1f4f9;
 }
 
-/* Navbar */
+
 .navbar {
   background-color: #ffffff;
   border-bottom: 1px solid #e1e4ea;
@@ -92,7 +92,7 @@ img {
   border: 1px solid #174ea6;
 }
 
-/* Hero */
+
 .hero {
   background: linear-gradient(135deg, #174ea6, #4285f4);
   color: #ffffff;
@@ -133,7 +133,6 @@ img {
   justify-content: center;
 }
 
-/* Buttons */
 .btn-primary,
 .btn-secondary {
   border: none;
@@ -163,7 +162,7 @@ img {
   background-color: #e8f0fe;
 }
 
-/* Grids */
+
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -176,7 +175,7 @@ img {
   gap: 1.5rem;
 }
 
-/* Cards */
+
 .card {
   background-color: #ffffff;
   border-radius: 16px;
@@ -194,7 +193,6 @@ img {
   line-height: 1.5;
 }
 
-/* Image container: same size for every card */
 .card-image {
   width: 100%;
   height: 220px;
@@ -210,9 +208,6 @@ img {
   display: block;
 }
 
-
-
-/* Clients */
 .client-card {
   text-align: left;
 }
@@ -237,7 +232,6 @@ img {
   color: #64748b;
 }
 
-/* Contact form */
 .contact-wrapper {
   display: flex;
   justify-content: center;
@@ -279,7 +273,6 @@ img {
   font-size: 0.85rem;
 }
 
-/* Newsletter */
 .newsletter {
   background-color: #1b2640;
   color: #ffffff;
@@ -309,7 +302,6 @@ img {
   outline: 2px solid #ff7d35;
 }
 
-/* Footer */
 .footer {
   background-color: #0b1020;
   color: #cbd5f5;
@@ -321,7 +313,7 @@ img {
   font-size: 0.85rem;
 }
 
-/* Admin layout */
+
 .admin-login {
   min-height: 100vh;
   display: flex;
@@ -453,7 +445,7 @@ img {
   text-overflow: ellipsis;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .hero-inner {
     flex-direction: column;
@@ -488,22 +480,19 @@ img {
   }
 }
 
-/* Our Projects layout */
-/* Our Projects layout – perfectly centered row */
+
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* force 3 in a row */
-  gap: 2rem;                             /* spacing between cards */
-  justify-items: center;                 /* center card in its grid cell */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 2rem;                             
+  justify-items: center;                 
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;                        /* center whole group */
+  margin: 0 auto;                        
 }
-
-/* stable width so both cards look identical */
 .project-card {
   width: 100%;
-  max-width: 350px;      /* same width for every card */
+  max-width: 350px;      
 }
 
 

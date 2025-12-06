@@ -1,4 +1,3 @@
-// backend/src/routes/projectRoutes.js
 import express from "express";
 import { getProjects, createProject } from "../controllers/projectController.js";
 import { protect } from "../middleware/authMiddleware.js";

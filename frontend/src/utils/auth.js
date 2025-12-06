@@ -5,7 +5,7 @@ const EXPIRY_KEY = "adminTokenExpiry";
 
 export const saveAdminSession = (token) => {
   const expiresAt =
-    Date.now() + SESSION_TIMEOUT_MINUTES * 60 * 1000; // now + 30 min
+    Date.now() + SESSION_TIMEOUT_MINUTES * 60 * 1000;
   localStorage.setItem(TOKEN_KEY, token);
   localStorage.setItem(EXPIRY_KEY, String(expiresAt));
 };
@@ -32,7 +32,6 @@ export const isAdminAuthenticated = () => {
   }
 
   if (Date.now() > expiryTime) {
-    // session expired
     clearAdminSession();
     return false;
   }

@@ -13,7 +13,6 @@ const HeroSection = () => {
           </a>
         </div>
         <div className="hero-image">
-          {/* You can replace with any static image path */}
           <div className="hero-placeholder">Hero Image</div>
         </div>
       </div>

@@ -1,7 +1,3 @@
-// frontend/src/utils/imageProcessing.js
-
-// Crop/fit image into exactly 450x350 WITHOUT cutting important parts
-// It keeps the whole image visible and adds padding if needed.
 export const cropImageTo450x350 = (file) => {
   const TARGET_WIDTH = 450;
   const TARGET_HEIGHT = 350;
@@ -19,12 +15,9 @@ export const cropImageTo450x350 = (file) => {
         canvas.width = TARGET_WIDTH;
         canvas.height = TARGET_HEIGHT;
 
-        // Fill background with white (so padding looks clean)
         ctx.fillStyle = "#ffffff";
         ctx.fillRect(0, 0, TARGET_WIDTH, TARGET_HEIGHT);
 
-        // ✅ IMPORTANT DIFFERENCE:
-        // Use MIN scale so the whole image fits inside 450x350 (no zoom cutting)
         const scale = Math.min(
           TARGET_WIDTH / img.width,
           TARGET_HEIGHT / img.height

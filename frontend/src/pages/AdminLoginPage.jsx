@@ -1,4 +1,3 @@
-// frontend/src/pages/AdminLoginPage.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginAdmin } from "../api/authApi";
@@ -19,9 +18,7 @@ const AdminLoginPage = () => {
 
     try {
       const res = await loginAdmin(form.email, form.password);
-      // ✅ save token + expiry FIRST
       saveAdminSession(res.data.token);
-      // ✅ then navigate
       navigate("/admin");
     } catch (err) {
       setError("Invalid credentials");
